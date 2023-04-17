@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: Tenor Sans, sans-serif;
+  font-family: "Tenor Sans", sans-serif;
   color: #323232;
   background-color: #F3EFEA;
 }
@@ -328,28 +328,50 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "Tenor Sans";
+  src: url("/fonts/TenorSans-Regular.ttf");
+  @font-face {
+    font-family: "Pacifico";
+    src: url("/fonts/Pacifico-Regular.ttf");
+  }
+}
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding-top: 40px;
   padding-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0 40px;
+  grid-template-areas: "navlist logo-top login" "navlist logo-bottom login";
 }
 .nav-menu {
+  grid-area: navlist;
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  align-items: center;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .nav-logo {
+  margin: auto;
+  grid-area: logo-top;
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
 }
 .nav-logo__bottom {
+  margin: auto;
+  grid-area: logo-bottom;
+  font-family: "Pacifico";
   font-size: 40px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  text-transform: uppercase;
+  line-height: 1.5;
+  text-shadow: 0px 4px 4px rgba(87, 70, 58, 0.25);
+}
+.nav-login {
+  grid-area: login;
+  margin: auto 0 auto auto;
 }
 
 .bookshelf {
@@ -360,6 +382,7 @@ template {
   width: 30px;
   height: 470px;
   background-color: #cc493d;
+  box-shadow: 2px 2px 2px #323232;
 }
 .bookshelf__item--full {
   width: 350px;

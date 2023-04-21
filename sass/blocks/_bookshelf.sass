@@ -5,8 +5,66 @@
     width: 30px
     height: 470px
     background-color: $books-color
-    box-shadow: 2px 2px 2px $text-color
+    box-shadow: 1px 1px 5px $text-color
+    display: flex
+    flex-direction: column-reverse
+    align-items: center
+    justify-content: space-between
+    padding: 10px
+    &:hover
+      transition: 1s ease
+      background-color: darken($books-color, 15%)
     &--full
+      flex-direction: column
       width: 350px
+      padding: 80px 15px
       margin-left: 15px
       margin-right: 15px
+
+  &__wrapper
+    height: 100%
+    display: flex
+    flex-direction: column-reverse
+    align-items: center
+    justify-content: space-between
+    padding: 10px
+    &--full
+      width: 100%
+      height: 100%
+
+      background-color: transparent
+
+  &__author
+    max-height: 40%
+    color: $text-h1-color
+    margin: 0 auto
+    font-size: 10px
+    line-height: 1
+    text-transform: uppercase
+    letter-spacing: 2px
+    writing-mode: vertical-lr
+    transform: rotate(180deg)
+    &--full
+      color: $text-h1-color
+      text-align: center
+      font-size: 15px
+      line-height: 2
+      text-transform: uppercase
+      letter-spacing: 3px
+      margin-bottom: 60px
+  &__title
+    color: $text-h1-color
+    writing-mode: vertical-lr
+    transform: rotate(180deg)
+    font-size: 14px
+    margin: auto 0
+    &--full
+      color: $text-h1-color
+      text-align: center
+      font-size: 28px
+      line-height: 1.5
+      text-transform: uppercase
+      letter-spacing: 3px
+
+.favorites path
+  fill: #f6f6f6

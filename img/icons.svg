@@ -1,24 +1,5 @@
 <svg width="0" height="0" class="hidden">
-  <symbol width="30px" version="1.1" id="favorites" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 459 459">
-    <g>
-      <g id="bookmark">
-        <path fill="none" stroke="#F6F6F6" stroke-width="15" d="M357,0H102C73.95,0,51,22.95,51,51v408l178.5-76.5L408,459V51C408,22.95,385.05,0,357,0z"></path>
-      </g>
-    </g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
-    <g></g>
+  <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" id="bookmark">
+    <path d="M37,3	H13v44l12-7l12,7V3z"></path>
   </symbol>
 </svg>

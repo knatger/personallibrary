@@ -1,3 +1,207 @@
+let bookshelfElements = [
+  {
+    author: "Дженни Колган",
+    title: "Летний ресторанчик на берегу",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Гордость и предубеждение",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Эмма",
+  },
+  {
+    author: "Шарлотта Бронте",
+    title: "Джейн Эйр",
+  },
+  {
+    author: "Александр Дюма",
+    title: "Тайный заговор",
+  },
+  {
+    author: "Мэри Стюарт",
+    title: "Последнее волшебство",
+  },
+  {
+    author: "Уильям Теккерей",
+    title: "Ярмарка тщеславия",
+  },
+  {
+    author: "Коллин Маккалоу",
+    title: "Поющие в терновнике",
+  },
+  {
+    author: "Алексей Сальников",
+    title: "Петровы в группе и вокруг него",
+  },
+  {
+    author: "Михаил Булгаков",
+    title: "Мастер и Маргарита",
+  },
+  {
+    author: "Николя Барро",
+    title: "Кафе маленьких чудес",
+  },
+  {
+    author: "Дженни Колган",
+    title: "Летний ресторанчик на берегу",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Гордость и предубеждение",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Эмма",
+  },
+  {
+    author: "Шарлотта Бронте",
+    title: "Джейн Эйр",
+  },
+  {
+    author: "Александр Дюма",
+    title: "Тайный заговор",
+  },
+  {
+    author: "Мэри Стюарт",
+    title: "Последнее волшебство",
+  },
+  {
+    author: "Уильям Теккерей",
+    title: "Ярмарка тщеславия",
+  },
+  {
+    author: "Коллин Маккалоу",
+    title: "Поющие в терновнике",
+  },
+  {
+    author: "Алексей Сальников",
+    title: "Петровы в группе и вокруг него",
+  },
+  {
+    author: "Михаил Булгаков",
+    title: "Мастер и Маргарита",
+  },
+  {
+    author: "Николя Барро",
+    title: "Кафе маленьких чудес",
+  },
+  {
+    author: "Дженни Колган",
+    title: "Летний ресторанчик на берегу",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Гордость и предубеждение",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Эмма",
+  },
+  {
+    author: "Шарлотта Бронте",
+    title: "Джейн Эйр",
+  },
+  {
+    author: "Александр Дюма",
+    title: "Тайный заговор",
+  },
+  {
+    author: "Мэри Стюарт",
+    title: "Последнее волшебство",
+  },
+  {
+    author: "Уильям Теккерей",
+    title: "Ярмарка тщеславия",
+  },
+  {
+    author: "Коллин Маккалоу",
+    title: "Поющие в терновнике",
+  },
+  {
+    author: "Алексей Сальников",
+    title: "Петровы в группе и вокруг него",
+  },
+  {
+    author: "Михаил Булгаков",
+    title: "Мастер и Маргарита",
+  },
+  {
+    author: "Николя Барро",
+    title: "Кафе маленьких чудес",
+  },
+  {
+    author: "Дженни Колган",
+    title: "Летний ресторанчик на берегу",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Гордость и предубеждение",
+  },
+  {
+    author: "Джейн Остин",
+    title: "Эмма",
+  },
+  {
+    author: "Шарлотта Бронте",
+    title: "Джейн Эйр",
+  },
+  {
+    author: "Александр Дюма",
+    title: "Тайный заговор",
+  },
+  {
+    author: "Мэри Стюарт",
+    title: "Последнее волшебство",
+  },
+  {
+    author: "Уильям Теккерей",
+    title: "Ярмарка тщеславия",
+  },
+  {
+    author: "Коллин Маккалоу",
+    title: "Поющие в терновнике",
+  },
+  {
+    author: "Алексей Сальников",
+    title: "Петровы в группе и вокруг него",
+  },
+  {
+    author: "Михаил Булгаков",
+    title: "Мастер и Маргарита",
+  },
+  {
+    author: "Николя Барро",
+    title: "Кафе маленьких чудес",
+  },
+];
+
+const getBooks = (arrayOfBooks) => {
+  const bookshelf = document.querySelector(".bookshelf");
+  let bookshelfItems = "";
+  for (let book = 0; book < arrayOfBooks.length; book++) {
+    if (book == 0) {
+      bookshelfItems += `<button class="bookshelf__item bookshelf__item--full">
+        <svg class="bookshelf__icon">
+          <use xlink:href="img/icons.svg#bookmark"></use>
+        </svg>
+        <div class="bookshelf__author--full">${arrayOfBooks[book].author}</div>
+        <div class="bookshelf__title--full">${arrayOfBooks[book].title}</div>
+      </button>`;
+    } else {
+      bookshelfItems += `<button class="bookshelf__item">
+        <svg class="bookshelf__icon hidden">
+          <use xlink:href="img/icons.svg#bookmark"></use>
+        </svg>
+        <div class="bookshelf__author">${arrayOfBooks[book].author}</div>
+        <div class="bookshelf__title">${arrayOfBooks[book].title}</div>
+      </button>`;
+    }
+  }
+  bookshelf.innerHTML = bookshelfItems;
+};
+
 const selectBook = () => {
   const books = document.querySelectorAll(".bookshelf__item");
   let fullBookItem = document.querySelector(".bookshelf__item--full");
@@ -35,22 +239,37 @@ const selectBook = () => {
         book.title.classList.add("bookshelf__title--full");
         book.bookmark.classList.remove("hidden");
         book.title.classList.add("bookshelf__title--full");
-        
+
         /* определяем выбранную книгу как увеличенную */
         fullBookItem = bookItem;
         fullBook.author = book.author;
         fullBook.title = book.title;
         fullBook.bookmark = book.bookmark;
-        console.log(fullBook);
       }
     });
   });
 };
 
 const modalBook = () => {
-  let fullBookItem = document.querySelector(".bookshelf__item--full");
+  const fullBookItem = document.querySelector(".bookshelf__item--full");
+  const modal = document.querySelector(".modal");
+  const btnClose = document.querySelector(".modal__close");
+  const modalInner = document.querySelector(".modal__inner");
 
+  fullBookItem.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
 
-}
+  btnClose.addEventListener("click", () => {
+    modal.style.display = "";
+  });
+
+  modal.addEventListener("click", (event) => {
+    const modalContent = event.target.closest(".modal__inner");
+    if (!modalContent) modal.style.display = "";
+  });
+};
+
+// getBooks(bookshelfElements);
 selectBook();
 modalBook();

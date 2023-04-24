@@ -196,19 +196,25 @@
     <div class="modal">
       <div class="modal__inner">
         <div class="modal__top">
-          <h2 class="modal__author">Автор книги</h2>
-          <h2 class="modal__title">Название книги</h2>
-          <button class="modal__close"></button>
+          <div class="modal__subtitle">
+            <h2 class="modal__author">Автор книги</h2>
+            <h2 class="modal__title">Название книги</h2>
+          </div>
+          <div class="modal__close">
+            <svg class="modal-icon">
+              <use xlink:href="img/icons.svg#cross"></use>
+            </svg>
+          </div>
         </div>
         <div class="modal__buttom">
-          <div class="modal-buttom__left">
+          <div class="modal__left">
             <img
               class="modal__img"
               src="img/img-book.jpg"
               alt="Автор книги, название книги"
             />
           </div>
-          <div class="modal-buttom__right">
+          <div class="modal__right">
             <h3>Описание</h3>
             <p class="modal__description">
               Жила-была в американской глубинке девочка, и звали ее Дейзи Фэй.

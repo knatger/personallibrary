@@ -36,6 +36,10 @@ let bookshelfElements = [
     title: "Петровы в группе и вокруг него",
   },
   {
+    author: "Алексей Сальников",
+    title: "Петровы в группе и вокруг него",
+  },
+  {
     author: "Михаил Булгаков",
     title: "Мастер и Маргарита",
   },
@@ -178,98 +182,52 @@ let bookshelfElements = [
 ];
 
 const getBooks = (arrayOfBooks) => {
-  const bookshelf = document.querySelector(".bookshelf");
+  const bookshelf = document.querySelector(".bookshelf__wrapper");
   let bookshelfItems = "";
+
   for (let book = 0; book < arrayOfBooks.length; book++) {
+    let middle = Math.round(arrayOfBooks.length / 2);
+
     if (book == 0) {
-      bookshelfItems += `<button class="bookshelf__item bookshelf__item--full">
-        <svg class="bookshelf__icon">
-          <use xlink:href="img/icons.svg#bookmark"></use>
-        </svg>
-        <div class="bookshelf__author--full">${arrayOfBooks[book].author}</div>
-        <div class="bookshelf__title--full">${arrayOfBooks[book].title}</div>
-      </button>`;
+      bookshelfItems += `
+      <button class="bookshelf__item">
+          <div class="bookshelf__item--small hidden">
+            <div class="bookshelf__author bookshelf__author--small">${arrayOfBooks[book].author}</div>
+            <div class="bookshelf__title bookshelf__title--small">${arrayOfBooks[book].title}</div>
+          </div>
+          <div class="bookshelf__item--full">
+            <svg class="bookshelf__icon">
+              <use xlink:href="img/icons.svg#bookmark"></use>
+            </svg>
+            <div class="bookshelf__author bookshelf__author--full">${arrayOfBooks[book].author}</div>
+            <div class="bookshelf__title bookshelf__title--full">${arrayOfBooks[book].title}</div>
+          </div>
+        </button>
+        `;
     } else {
-      bookshelfItems += `<button class="bookshelf__item">
-        <svg class="bookshelf__icon hidden">
-          <use xlink:href="img/icons.svg#bookmark"></use>
-        </svg>
-        <div class="bookshelf__author">${arrayOfBooks[book].author}</div>
-        <div class="bookshelf__title">${arrayOfBooks[book].title}</div>
-      </button>`;
+      bookshelfItems += `
+      <button class="bookshelf__item">
+          <div class="bookshelf__item--small">
+            <div class="bookshelf__author bookshelf__author--small">${arrayOfBooks[book].author}</div>
+            <div class="bookshelf__title bookshelf__title--small">${arrayOfBooks[book].title}</div>
+          </div>
+          <div class="bookshelf__item--full hidden">
+            <svg class="bookshelf__icon">
+              <use xlink:href="img/icons.svg#bookmark"></use>
+            </svg>
+            <div class="bookshelf__author bookshelf__author--full">${arrayOfBooks[book].author}</div>
+            <div class="bookshelf__title bookshelf__title--full">${arrayOfBooks[book].title}</div>
+          </div>
+        </button>
+        `;
+        
     }
   }
   bookshelf.innerHTML = bookshelfItems;
+
+  // const bookshelfWidth = bookshelf.getBoundingClientRect().width;
+  // bookshelf.style.width = bookshelfWidth + "px";
+  // bookshelf.style.transform = "translateX(" + -bookshelfWidth / 3 + "px)";
 };
 
-const selectBook = () => {
-  const books = document.querySelectorAll(".bookshelf__item");
-  let fullBookItem = document.querySelector(".bookshelf__item--full");
-
-  let fullBook = {
-    author: fullBookItem.querySelector(".bookshelf__author--full"),
-    title: fullBookItem.querySelector(".bookshelf__title--full"),
-    bookmark: fullBookItem.querySelector(".bookshelf__icon"),
-  };
-
-  books.forEach((bookItem) => {
-    bookItem.addEventListener("click", () => {
-      let book = {
-        author: bookItem.querySelector(".bookshelf__author"),
-        title: bookItem.querySelector(".bookshelf__title"),
-        bookmark: bookItem.querySelector(".bookshelf__icon"),
-      };
-
-      if (bookItem !== fullBookItem) {
-        /* убираем классы у текущей большой книги */
-        fullBookItem.classList.remove("bookshelf__item--full");
-        fullBook.author.classList.remove("bookshelf__author--full");
-        fullBook.author.classList.add("bookshelf__author");
-        fullBook.title.classList.remove("bookshelf__title--full");
-        fullBook.title.classList.add("bookshelf__title");
-        fullBook.bookmark.classList.add("hidden");
-        // fullBook.bookmark.style.display = "none";
-        // fullBook.bookmark.classList.toggle("bookshelf__icon");
-
-        /* добавляем классы для увеличения выбранной книги */
-        bookItem.classList.add("bookshelf__item--full");
-        book.author.classList.remove("bookshelf__author");
-        book.author.classList.add("bookshelf__author--full");
-        book.title.classList.remove("bookshelf__title");
-        book.title.classList.add("bookshelf__title--full");
-        book.bookmark.classList.remove("hidden");
-        book.title.classList.add("bookshelf__title--full");
-
-        /* определяем выбранную книгу как увеличенную */
-        fullBookItem = bookItem;
-        fullBook.author = book.author;
-        fullBook.title = book.title;
-        fullBook.bookmark = book.bookmark;
-      }
-    });
-  });
-};
-
-const modalBook = () => {
-  const fullBookItem = document.querySelector(".bookshelf__item--full");
-  const modal = document.querySelector(".modal");
-  const btnClose = document.querySelector(".modal__close");
-  const modalInner = document.querySelector(".modal__inner");
-
-  fullBookItem.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
-
-  btnClose.addEventListener("click", () => {
-    modal.style.display = "";
-  });
-
-  modal.addEventListener("click", (event) => {
-    const modalContent = event.target.closest(".modal__inner");
-    if (!modalContent) modal.style.display = "";
-  });
-};
-
-// getBooks(bookshelfElements);
-selectBook();
-modalBook();
+getBooks(bookshelfElements);

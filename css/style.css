@@ -388,34 +388,44 @@ template {
 }
 
 .bookshelf {
+  width: 1500px;
+  margin: 0;
+  padding: 20px;
+}
+.bookshelf__wrapper {
+  overflow-x: auto;
   display: flex;
-  justify-content: space-evenly;
 }
 .bookshelf__item {
+  flex-shrink: 0;
   width: 30px;
   height: 470px;
   background-color: #cc493d;
   box-shadow: 2px 2px 10px #323232;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+  width: auto;
   border-top: 5px solid #dddddd;
   border-bottom: 5px solid #dddddd;
   transition: 0.5s ease;
+  margin-right: 20px;
 }
 .bookshelf__item:hover {
   transition: 1s ease;
   background-color: #953027;
 }
+.bookshelf__item--small {
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-;
+}
 .bookshelf__item--full {
+  height: 100%;
   position: relative;
   flex-direction: column;
   width: 350px;
   padding: 80px 15px;
-  margin-left: 15px;
-  margin-right: 15px;
   transition: 1s ease;
 }
 .bookshelf__icon {
@@ -432,35 +442,36 @@ template {
   fill: #dddddd;
 }
 .bookshelf__author {
-  max-height: 40%;
+  text-transform: uppercase;
   color: #F6F6F6;
+}
+.bookshelf__author--small {
+  max-height: 40%;
   margin: 0 auto;
   font-size: 10px;
   line-height: 1;
-  text-transform: uppercase;
   letter-spacing: 2px;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
 }
 .bookshelf__author--full {
-  color: #F6F6F6;
   text-align: center;
   font-size: 15px;
   line-height: 2;
-  text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 60px;
   transition: 0.1s ease;
 }
 .bookshelf__title {
   color: #F6F6F6;
+}
+.bookshelf__title--small {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   font-size: 14px;
   margin: auto 0;
 }
 .bookshelf__title--full {
-  color: #F6F6F6;
   text-align: center;
   font-size: 28px;
   line-height: 1.5;
@@ -471,6 +482,10 @@ template {
 
 .hidden {
   display: none;
+}
+
+.bookshelf__wraper--transform {
+  transform: translateX(-350px);
 }
 
 .modal {

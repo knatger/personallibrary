@@ -340,10 +340,10 @@ template {
 @font-face {
   font-family: "Tenor Sans";
   src: url("/fonts/TenorSans-Regular.ttf");
-  @font-face {
-    font-family: "Pacifico";
-    src: url("/fonts/Pacifico-Regular.ttf");
-  }
+}
+@font-face {
+  font-family: "Pacifico";
+  src: url("/fonts/Pacifico-Regular.ttf");
 }
 .nav {
   padding-top: 40px;

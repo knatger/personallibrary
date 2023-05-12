@@ -185,7 +185,7 @@ const getBooks = (arrayOfBooks) => {
   for (let book = 0; book < arrayOfBooks.length; book++) {
     if (book == middle) {
       bookshelfItems += `
-      <button class="bookshelf__item">
+      <div class="bookshelf__item">
           <div class="bookshelf__item--small hidden">
             <div class="bookshelf__author bookshelf__author--small">${arrayOfBooks[book].author}</div>
             <div class="bookshelf__title bookshelf__title--small">${arrayOfBooks[book].title}</div>
@@ -197,11 +197,11 @@ const getBooks = (arrayOfBooks) => {
             <div class="bookshelf__author bookshelf__author--full">${arrayOfBooks[book].author}</div>
             <div class="bookshelf__title bookshelf__title--full">${arrayOfBooks[book].title}</div>
           </div>
-        </button>
+        </div>
         `;
     } else {
       bookshelfItems += `
-      <button class="bookshelf__item">
+      <div class="bookshelf__item">
           <div class="bookshelf__item--small">
             <div class="bookshelf__author bookshelf__author--small">${arrayOfBooks[book].author}</div>
             <div class="bookshelf__title bookshelf__title--small">${arrayOfBooks[book].title}</div>
@@ -213,12 +213,12 @@ const getBooks = (arrayOfBooks) => {
             <div class="bookshelf__author bookshelf__author--full">${arrayOfBooks[book].author}</div>
             <div class="bookshelf__title bookshelf__title--full">${arrayOfBooks[book].title}</div>
           </div>
-        </button>
+        </div>
         `;
-        
     }
   }
   bookshelf.innerHTML = bookshelfItems;
+ 
 };
 
 getBooks(bookshelfElements);

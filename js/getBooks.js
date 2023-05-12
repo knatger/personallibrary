@@ -1,4 +1,4 @@
-let bookshelfElements = [
+const bookshelfElements = [
   {
     author: "Дженни Колган",
     title: "Летний ресторанчик на берегу",
@@ -30,10 +30,6 @@ let bookshelfElements = [
   {
     author: "Коллин Маккалоу",
     title: "Поющие в терновнике",
-  },
-  {
-    author: "Алексей Сальников",
-    title: "Петровы в группе и вокруг него",
   },
   {
     author: "Алексей Сальников",
@@ -184,11 +180,10 @@ let bookshelfElements = [
 const getBooks = (arrayOfBooks) => {
   const bookshelf = document.querySelector(".bookshelf__wrapper");
   let bookshelfItems = "";
+  const middle = Math.round(arrayOfBooks.length / 2);
 
   for (let book = 0; book < arrayOfBooks.length; book++) {
-    let middle = Math.round(arrayOfBooks.length / 2);
-
-    if (book == 0) {
+    if (book == middle) {
       bookshelfItems += `
       <button class="bookshelf__item">
           <div class="bookshelf__item--small hidden">
@@ -224,10 +219,6 @@ const getBooks = (arrayOfBooks) => {
     }
   }
   bookshelf.innerHTML = bookshelfItems;
-
-  // const bookshelfWidth = bookshelf.getBoundingClientRect().width;
-  // bookshelf.style.width = bookshelfWidth + "px";
-  // bookshelf.style.transform = "translateX(" + -bookshelfWidth / 3 + "px)";
 };
 
 getBooks(bookshelfElements);

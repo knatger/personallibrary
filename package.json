@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "g": "^2.0.1"
+  },
+  "name": "perslib",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^8.40.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc.json --ext js src"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

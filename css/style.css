@@ -388,13 +388,14 @@ template {
 }
 
 .bookshelf {
-  width: 1500px;
-  margin: 0;
-  padding: 20px;
+  width: 100%;
 }
 .bookshelf__wrapper {
-  overflow-x: auto;
+  width: 100vw;
   display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 20px;
 }
 .bookshelf__item {
   flex-shrink: 0;
@@ -418,7 +419,7 @@ template {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  justify-content: space-;
+  justify-content: space-between;
 }
 .bookshelf__item--full {
   height: 100%;
@@ -426,7 +427,6 @@ template {
   flex-direction: column;
   width: 350px;
   padding: 80px 15px;
-  transition: 1s ease;
 }
 .bookshelf__icon {
   position: absolute;
@@ -484,8 +484,8 @@ template {
   display: none;
 }
 
-.bookshelf__wraper--transform {
-  transform: translateX(-350px);
+.center {
+  justify-content: center;
 }
 
 .modal {

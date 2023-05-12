@@ -1,43 +1,59 @@
+function reduceBooks(books) {
+  books.forEach((book) => {
+    book.firstElementChild.classList.remove("hidden");
+    book.lastElementChild.classList.add("hidden");
+  });
+}
+
+function growBook(book) {
+  book.firstElementChild.classList.add("hidden");
+  book.lastElementChild.classList.remove("hidden");
+}
+
+function alignBook(bookClicked, fullBookItem, positionFullBook, bookshelf) {
+  const positionClickedBook = bookClicked.getBoundingClientRect();
+  console.log(fullBookItem);
+  console.log(positionFullBook);
+  console.log(bookClicked);
+  console.log(positionClickedBook);
+  const shift = positionFullBook.x - positionClickedBook.x;
+
+  bookshelf.style.transition = "transform 0.5s ease";
+  bookshelf.style.transform = "translateX(" + shift + "px)";
+
+  console.log(shift);
+}
+
+function getFullBook() {
+  const fullBooks = document.querySelectorAll(".bookshelf__item--full");
+  let fullBook = "";
+
+  for (let i = 0; i < fullBooks.length; i++) {
+    if (fullBooks[i].classList.contains("hidden")) continue;
+    fullBook = fullBooks[i];
+    break;
+  }
+
+  return fullBook;
+}
+
+function getFullBookPosition(fullBookItem) {
+  return fullBookItem.getBoundingClientRect();
+}
+
 const selectBook = () => {
-  const bookshelfWrapper = document.querySelector(".bookshelf__wrapper");
-  const smallBooks = bookshelfWrapper.querySelectorAll(
-    ".bookshelf__item--small"
-  );
-  let fullBook = bookshelfWrapper.querySelector(".bookshelf__item--full");
+  const bookshelf = document.querySelector(".bookshelf");
+  const books = document.querySelectorAll(".bookshelf__item");
 
-  let fullBookInfo = {
-    author: fullBook.querySelector(".bookshelf__author--full"),
-    title: fullBook.querySelector(".bookshelf__title--full"),
-    bookmark: fullBook.querySelector(".bookshelf__icon"),
-  };
+  books.forEach((book) => {
+    book.addEventListener("click", (event) => {
+      const bookClicked = event.target.closest(".bookshelf__item");
+      const fullBookItem = getFullBook().closest(".bookshelf__item");
+      const positionFullBook = getFullBookPosition(fullBookItem);
 
-  smallBooks.forEach((smallBook) => {
-    smallBook.addEventListener("click", (event) => {
-      const smallBookItem = event.target.closest(".bookshelf__item");
-      const fullBookItem = fullBook.closest(".bookshelf__item");
-      console.log(fullBookItem);
-      let smallBookInfo = {
-        author: smallBook.querySelector(".bookshelf__author"),
-        title: smallBook.querySelector(".bookshelf__title"),
-        bookmark: smallBook.querySelector(".bookshelf__icon"),
-      };
-
-      fullBookItem.firstElementChild.classList.remove("hidden");
-      fullBookItem.lastElementChild.classList.add("hidden");
-
-      smallBookItem.firstElementChild.classList.add("hidden");
-      smallBookItem.lastElementChild.classList.remove("hidden");
-
-      let smallWidth = smallBookItem.offsetWidth;
-      let fullWidth = fullBookItem.offsetWidth;
-
-      let position = fullBookItem.offsetWidth;
-      // console.log(fullBook, position);
-      bookshelfWrapper.style.transform = "translate3d(-, 0px, 0px)";
-
-      fullBook = smallBook;
-
-      return fullBook;
+      reduceBooks(books);
+      growBook(bookClicked);
+      alignBook(bookClicked, fullBookItem, positionFullBook, bookshelf);
     });
   });
 };

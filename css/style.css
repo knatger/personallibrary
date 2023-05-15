@@ -517,9 +517,6 @@ template {
   z-index: -5;
 }
 .slider__button {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 100px;
   width: 100px;
   cursor: pointer;
@@ -552,6 +549,7 @@ template {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 700px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 80px;
@@ -574,7 +572,7 @@ template {
   gap: 20px;
 }
 .modal__left {
-  width: 50%;
+  min-width: 15%;
 }
 .modal__img {
   width: 100%;

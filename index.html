@@ -12,8 +12,8 @@
       <div class="container">
         <nav class="nav">
           <ul class="nav-menu">
+            <li class="nav-menu__item"><a href="#bookshelf">книжная полка</a></li>
             <li class="nav-menu__item"><a href="#">о клубе</a></li>
-            <li class="nav-menu__item"><a href="#">книжная полка</a></li>
             <li class="nav-menu__item"><a href="#">рейтинг</a></li>
           </ul>
           <span class="nav-logo">книжный клуб</span>
@@ -24,9 +24,39 @@
       <!-- /.container -->
     </header>
 
-    <section class="bookshelf">
+    <section id="bookshelf" class="bookshelf">
       <div class="bookshelf__wrapper"></div>
       <!-- /.bookshelf__wrapper -->
+      <div class="bookshelf__slider slider">
+        <ul class="slider__wrapper">
+          <li class="slider__slide gradient">
+            <img src="/img/bookshelf_bcg-1.JPG" alt="" />
+          </li>
+          <li class="slider__slide gradient">
+            <img src="/img/bookshelf_bcg-1.JPG" alt="" />
+          </li>
+          <li class="slider__slide gradient">
+            <img src="/img/bookshelf_bcg-1.JPG" alt="" />
+          </li>
+        </ul>
+
+        <button class="slider__button slider__button--prev">
+          <svg class="slider__icon">
+            <use xlink:href="img/icons.svg#arrow"></use>
+          </svg>
+        </button>
+        <button class="slider__button slider__button--next">
+          <svg class="slider__icon">
+            <use xlink:href="img/icons.svg#arrow.svg"></use>
+          </svg>
+        </button>
+
+        <ul class="slider__points">
+          <li class="slider__point"></li>
+          <li class="slider__point"></li>
+          <li class="slider__point"></li>
+        </ul>
+      </div>
     </section>
     <!-- /.bookshelf -->
 
@@ -45,7 +75,7 @@
             </svg>
           </div>
         </div>
-        <div class="modal__buttom">
+        <div class="modal__bottom">
           <div class="modal__left">
             <img
               class="modal__img"

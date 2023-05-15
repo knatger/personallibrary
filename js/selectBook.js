@@ -1,3 +1,5 @@
+let fullShift = 0;
+
 const selectBook = () => {
   const bookshelfWrapper = document.querySelector(".bookshelf__wrapper");
   const books = document.querySelectorAll(".bookshelf__item");
@@ -12,7 +14,7 @@ const selectBook = () => {
 
       reduceBooks(books);
       growBook(bookClicked);
-      // alignBook(bookClicked, fullBookItem, positionFullBook, bookshelfWrapper);
+      firstAlignFullBook();
     });
   });
 };
@@ -40,32 +42,11 @@ function firstAlignFullBook() {
 
   const viewportWidth = document.documentElement.clientWidth;
 
-  const shift =
-    viewportWidth / 2 - positionFullBook.x - fullBookItem.offsetWidth / 2;
+  fullShift += viewportWidth / 2 - positionFullBook.x - fullBookItem.offsetWidth / 2;
 
   bookshelfWrapper.style.transition = "transform 0.5s ease";
-  bookshelfWrapper.style.transform = `translateX(${shift}px)`;
+  bookshelfWrapper.style.transform = `translateX(${fullShift}px)`;
 }
-
-// function alignBook(
-//   bookClicked,
-//   fullBookItem,
-//   positionFullBook,
-//   bookshelfWrapper
-// ) {
-//   const positionClickedBook = bookClicked.getBoundingClientRect();
-
-//   const viewportWidth = document.documentElement.clientWidth;
-
-//   const shift = positionClickedBook.x - viewportWidth / 2 - 175;
-
-//   bookshelfWrapper.style.transition = "transform 0.5s ease";
-//   bookshelfWrapper.style.transform = `translateX(${shift}px)`;
-//   console.log(viewportWidth / 2);
-//   console.log(positionClickedBook.x);
-//   // console.log(fullBookItem.offsetWidth / 2);
-//   console.log(shift);
-// }
 
 function getFullBook() {
   const fullBooks = document.querySelectorAll(".bookshelf__item--full");
